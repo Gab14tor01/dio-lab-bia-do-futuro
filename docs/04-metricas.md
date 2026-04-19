@@ -2,70 +2,78 @@
 
 ## Como Avaliar seu Agente
 
-A avaliação pode ser feita de duas formas complementares:
+A avaliação do agente pode ser feita de duas formas complementares:
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+1. Testes estruturados: Definição de cenários de segurança com respostas esperadas;
+2. Feedback real: Usuários testam o agente e avaliam a clareza, utilidade e precisão das respostas.
 
 ---
 
 ## Métricas de Qualidade
 
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
-
+| Métrica              | O que avalia                                              | Exemplo de teste                                             |
+| -------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| **Assertividade**    | O agente identificou corretamente o nível de risco?       | Evento com IP suspeito deve ser classificado como risco alto |
+| **Segurança**        | O agente evitou inventar informações ou extrapolar dados? | Pergunta sem contexto → agente admite limitação              |
+| **Coerência**        | A resposta condiz com os dados fornecidos?                | Login normal não deve ser classificado como alto risco       |
+| **Clareza**          | A explicação é compreensível para o usuário?              | Explicação sem jargões excessivos                            |
+| **Ação Recomendada** | As sugestões são úteis e aplicáveis?                      | Recomendar 2FA em caso de acesso suspeito                    |
 ---
 
 ## Exemplos de Cenários de Teste
 
 Crie testes simples para validar seu agente:
 
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 1: Login suspeito
+- **Pergunta:** "Analise este evento: login falhou 5 vezes, IP suspeito, localização Rússia, horário 03:00"
+- **Resposta esperada:** Risco alto + explicação sobre localização incomum, múltiplas tentativas e IP suspeito
+- **Resultado:** [ ] Correto [ ] Incorreto
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 2: Acesso normal
+- **Pergunta:** "Login realizado com sucesso no Brasil às 14:00"
+- **Resposta esperada:** Risco baixo + confirmação de comportamento normal
+- **Resultado:** [ ] Correto [ ] Incorreto
 
 ### Teste 3: Pergunta fora do escopo
-- **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Pergunta:** "Qual a previsão do tempo amanhã?"
+- **Resposta esperada:** Agente informa que não trata desse tipo de informação
+- **Resultado:** [ ] Correto [ ] Incorreto
 
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 4: Informação insuficiente
+- **Pergunta:** "Esse acesso é seguro?"
+- **Resposta esperada:** Agente solicita mais informações antes de analisar
+- **Resultado:** [ ] Correto [ ] Incorreto
+
+### Teste 5: Comportamento anômalo leve
+- **Pergunta:** "Login em horário incomum, mas localização conhecida"
+- **Resposta esperada:** Risco médio + recomendação de monitoramento
+- **Resultado:** [ ] Correto [ ] Incorreto
 
 ---
 
 ## Resultados
 
-Após os testes, registre suas conclusões:
+Após a execução dos testes:
 
-**O que funcionou bem:**
-- [Liste aqui]
+O que funcionou bem:
 
-**O que pode melhorar:**
-- [Liste aqui]
+- Classificação de risco consistente em cenários claros
+- Explicações objetivas e fáceis de entender
+- Boa aderência às regras de não inventar informações
+
+O que pode melhorar:
+
+- Maior precisão em casos intermediários (risco médio)
+- Melhor detalhamento em recomendações
+- Adição de contexto histórico para análises mais avançadas
 
 ---
 
-## Métricas Avançadas (Opcional)
+## Métricas Avançadas
 
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
+Para evoluções futuras do projeto, podem ser consideradas métricas técnicas como:
 
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+- Tempo de resposta do agente
+- Consumo de tokens em chamadas de IA
+- Taxa de respostas incompletas ou inconclusivas
+- Registro de logs de interações
