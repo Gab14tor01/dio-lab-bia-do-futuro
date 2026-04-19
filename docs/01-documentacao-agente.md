@@ -3,41 +3,53 @@
 ## Caso de Uso
 
 ### Problema
-> Qual problema financeiro seu agente resolve?
 
-[Sua descrição aqui]
+Equipes de segurança e usuários frequentemente enfrentam dificuldades para interpretar logs e alertas de cibersegurança, o que pode levar à demora na identificação de ameaças reais ou à ignorância de riscos importantes.
+
+Além disso, há um grande volume de eventos gerados diariamente, tornando o processo de análise manual lento, complexo e sujeito a erros.
 
 ### Solução
-> Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+O agente atua como um assistente inteligente de segurança, analisando automaticamente eventos e logs para:
+
+Identificar comportamentos suspeitos
+Classificar o nível de risco (baixo, médio ou alto)
+Explicar o problema em linguagem simples
+Sugerir ações corretivas e preventivas
+
+Ele reduz o esforço humano e acelera a tomada de decisão, funcionando de forma semelhante à BIA da Bradesco, porém focado em cibersegurança.
 
 ### Público-Alvo
-> Quem vai usar esse agente?
 
-[Sua descrição aqui]
+- Estudantes de tecnologia e cibersegurança
+- Pequenas e médias empresas sem equipe especializada
+- Analistas iniciantes de segurança (SOC)
+- Usuários comuns que desejam entender riscos digitais
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+SOCIA (Security Operations Center Intelligent Assistant)
 
 ### Personalidade
-> Como o agente se comporta? (ex: consultivo, direto, educativo)
 
-[Sua descrição aqui]
+O agente possui uma personalidade consultiva, analítica e educativa, atuando como um analista de segurança que:
+
+- Explica decisões de forma clara
+- Orienta o usuário com boas práticas
+- Evita linguagem excessivamente técnica quando desnecessária
+- Prioriza clareza e ação
 
 ### Tom de Comunicação
-> Formal, informal, técnico, acessível?
 
-[Sua descrição aqui]
+Tom semi-formal, técnico e acessível, equilibrando precisão técnica com linguagem compreensível.
 
 ### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+- Saudação: "Olá! Vou analisar esse evento de segurança para você."
+- Confirmação: "Entendi. Já estou verificando os detalhes desse acesso."
+- Erro/Limitação: "Não tenho informações suficientes para uma análise completa, mas posso te orientar com base nos dados disponíveis."
 
 ---
 
@@ -57,12 +69,13 @@ flowchart TD
 
 ### Componentes
 
-| Componente | Descrição |
-|------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
+| Componente           | Descrição                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| Interface            | Chatbot interativo (ex: Streamlit ou Web)                    |
+| LLM                  | Modelo de linguagem via API (ex: GPT)                        |
+| Base de Conhecimento | Dados simulados de logs e eventos de segurança (JSON/CSV)    |
+| Validação            | Regras de segurança + checagem de consistência das respostas |
+
 
 ---
 
@@ -70,12 +83,17 @@ flowchart TD
 
 ### Estratégias Adotadas
 
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
+- Agente responde apenas com base nos dados fornecidos
+- Classificação de risco baseada em regras simples + IA
+- Quando não possui dados suficientes, informa limitação
+- Evita conclusões sem evidência clara
+
+ Sugere ações baseadas em boas práticas de segurança
 
 ### Limitações Declaradas
-> O que o agente NÃO faz?
 
-[Liste aqui as limitações explícitas do agente]
+- Não substitui um especialista em cibersegurança
+- Não realiza monitoramento em tempo real
+- Não executa ações automáticas (como bloquear acessos)
+- Não garante detecção de todas as ameaças
+- Não acessa dados externos sem integração específica
