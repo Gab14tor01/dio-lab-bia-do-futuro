@@ -49,8 +49,6 @@ Parte dos dados funciona como contexto temporário, e parte como base de referê
 
 ## Exemplo de Contexto Montado
 
-> Mostre um exemplo de como os dados são formatados para o agente.
-
 ```
 Dados do Evento:
 - Usuário: gabriel
