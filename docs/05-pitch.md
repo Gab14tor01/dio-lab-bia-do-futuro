@@ -74,4 +74,4 @@ O impacto está em:
 
 ## Link do Vídeo
 
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
+https://youtu.be/ZIvsas3BL1U
