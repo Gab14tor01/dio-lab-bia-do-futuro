@@ -108,7 +108,7 @@ streamlit run app.py
 
 ### 📤 Exemplo de Saída
 
-```mermaid
+```bash
 ⚠️ Risco: alto
 
 📌 Motivo:
