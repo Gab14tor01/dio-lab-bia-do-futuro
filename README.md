@@ -69,7 +69,7 @@ AgenteIA/
 ## ▶️ Como Executar
 ### 📦 1. Instalar dependências
 
-```mermaid
+```bash
 pip install streamlit pandas requests
 ```
 
@@ -77,7 +77,7 @@ pip install streamlit pandas requests
 
 ### 🧠 2. Iniciar IA local (Ollama)
 
-```mermaid
+```bash
 ollama run llama3
 ```
 
@@ -85,7 +85,7 @@ ollama run llama3
 
 ### 💻 3. Rodar interface
 
-```mermaid
+```bash
 streamlit run app.py
 ```
 
@@ -93,7 +93,7 @@ streamlit run app.py
 
 ### 🧪 Exemplo de Entrada
 
-```mermaid
+```bash
 {
   "user": "gabriel",
   "ip": "185.220.101.45",
